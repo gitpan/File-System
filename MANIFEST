@@ -1,0 +1,11 @@
+Build.PL
+Changes
+lib/File/System.pm
+lib/File/System/Object.pm
+lib/File/System/Real.pm
+MANIFEST			This list of files
+README
+t/01_canonify.t
+t/02_glob.t
+t/03_real.t
+META.yml
