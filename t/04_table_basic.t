@@ -11,7 +11,7 @@ BEGIN { use_ok('File::System') }
 -d 't/root' and rmtree('t/root', 1);
 mkpath('t/root', 1, 0700);
 
-my $root = File::System->new('Real', root => 't/root');
+my $root = File::System->new('Table', '/' => [ 'Real', root => 't/root' ]);
 
 # Checking initial file system root
 is_root_sane($root);

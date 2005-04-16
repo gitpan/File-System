@@ -1,6 +1,6 @@
 ---
 name: File-System
-version: 1.01
+version: 1.02
 author:
   - Andrew Sterling Hanenkamp, E<lt>hanenkamp@users.sourceforge.netE<gt>
 abstract: Central factory for File::System modules
@@ -11,11 +11,16 @@ requires:
 provides:
   File::System:
     file: lib/File/System.pm
-    version: 1.01
+    version: 1.02
   File::System::Object:
     file: lib/File/System/Object.pm
     version: 1.01
   File::System::Real:
     file: lib/File/System/Real.pm
+    version: 1.01
+  File::System::Table:
+    file: lib/File/System/Table.pm
+  File::System::Test:
+    file: lib/File/System/Test.pm
     version: 1.01
 generated_by: Module::Build version 0.2609

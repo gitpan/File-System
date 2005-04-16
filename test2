@@ -1,0 +1,1600 @@
+START
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar isn't a mount point
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar isn't a mount point
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz isn't a mount point
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+bar/baz/qux isn't a mount point
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Mounting on mount point '/bar' will hide some files. at t/06_table_mount.t line 80
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar isn't a mount point
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz isn't a mount point
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+bar/baz/qux isn't a mount point
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Mounting on mount point '/bar/baz' will hide some files. at t/06_table_mount.t line 80
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar isn't a mount point
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+bar/baz/qux isn't a mount point
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar isn't a mount point
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Mounting on mount point '/.bar' will hide some files. at t/06_table_mount.t line 80
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+bar/baz/qux isn't a mount point
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar isn't a mount point
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+bar/baz/qux isn't a mount point
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar isn't a mount point
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz isn't a mount point
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+bar/baz/qux isn't a mount point
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+START
+Testing: 
+ is a container
+ has child /foo
+ has child /file1
+ has child /.bar
+ has child /baz
+ has child /.file4
+ has child /.file2/bar
+ has child /.bar/.baz/.qux
+ has child /qux
+ has child /file2/bar
+ has child /.file3
+ has child /file3
+ has child /bar/baz/qux
+ has child /file2
+ has child /bar/baz
+ has child /.qux
+ has child /.file2/foo
+ has child /.foo
+ has child /bar
+ has child /.file2
+ has child /.bar/.baz
+ has child /file4
+ has child /file2/foo
+ has child /.baz
+ has child /.file1
+Testing: .
+. is a container
+. has child /foo
+. has child /file1
+. has child /.bar
+. has child /baz
+. has child /.file4
+. has child /.file2/bar
+. has child /.bar/.baz/.qux
+. has child /qux
+. has child /file2/bar
+. has child /.file3
+. has child /file3
+. has child /bar/baz/qux
+. has child /file2
+. has child /bar/baz
+. has child /.qux
+. has child /.file2/foo
+. has child /.foo
+. has child /bar
+. has child /.file2
+. has child /.bar/.baz
+. has child /file4
+. has child /file2/foo
+. has child /.baz
+. has child /.file1
+Testing: ..
+.. is a container
+.. has child /foo
+.. has child /file1
+.. has child /.bar
+.. has child /baz
+.. has child /.file4
+.. has child /.file2/bar
+.. has child /.bar/.baz/.qux
+.. has child /qux
+.. has child /file2/bar
+.. has child /.file3
+.. has child /file3
+.. has child /bar/baz/qux
+.. has child /file2
+.. has child /bar/baz
+.. has child /.qux
+.. has child /.file2/foo
+.. has child /.foo
+.. has child /bar
+.. has child /.file2
+.. has child /.bar/.baz
+.. has child /file4
+.. has child /file2/foo
+.. has child /.baz
+.. has child /.file1
+Testing: .bar
+.bar is a container
+.bar isn't root
+.bar isn't a mount point
+.bar has child /.bar/.baz/.qux
+.bar has child /.bar/.baz
+Testing: .bar/.baz
+.bar/.baz is a container
+.bar/.baz isn't root
+.bar/.baz isn't a mount point
+.bar/.baz has child /.bar/.baz/.qux
+Testing: .bar/.baz/.qux
+.bar/.baz/.qux is a container
+.bar/.baz/.qux isn't root
+.bar/.baz/.qux isn't a mount point
+Testing: .baz
+.baz has content
+Testing: .file1
+.file1 has content
+Testing: .file2
+.file2 is a container
+.file2 isn't root
+.file2 isn't a mount point
+.file2 has child /.file2/bar
+.file2 has child /.file2/foo
+Testing: .file2/bar
+.file2/bar has content
+Testing: .file2/foo
+.file2/foo has content
+Testing: .file3
+.file3 has content
+Testing: .file4
+.file4 has content
+Testing: .foo
+.foo has content
+Testing: .qux
+.qux has content
+Testing: /
+/ is a container
+/ has child /foo
+/ has child /file1
+/ has child /.bar
+/ has child /baz
+/ has child /.file4
+/ has child /.file2/bar
+/ has child /.bar/.baz/.qux
+/ has child /qux
+/ has child /file2/bar
+/ has child /.file3
+/ has child /file3
+/ has child /bar/baz/qux
+/ has child /file2
+/ has child /bar/baz
+/ has child /.qux
+/ has child /.file2/foo
+/ has child /.foo
+/ has child /bar
+/ has child /.file2
+/ has child /.bar/.baz
+/ has child /file4
+/ has child /file2/foo
+/ has child /.baz
+/ has child /.file1
+Testing: bar
+bar is a container
+bar isn't root
+bar isn't a mount point
+bar has child /bar/baz/qux
+bar has child /bar/baz
+Testing: bar/baz
+bar/baz is a container
+bar/baz isn't root
+bar/baz isn't a mount point
+bar/baz has child /bar/baz/qux
+Testing: bar/baz/qux
+bar/baz/qux is a container
+bar/baz/qux isn't root
+bar/baz/qux isn't a mount point
+Testing: baz
+baz has content
+Testing: file1
+file1 has content
+Testing: file2
+file2 is a container
+file2 isn't root
+file2 isn't a mount point
+file2 has child /file2/bar
+file2 has child /file2/foo
+Testing: file2/bar
+file2/bar has content
+Testing: file2/foo
+file2/foo has content
+Testing: file3
+file3 has content
+Testing: file4
+file4 has content
+Testing: foo
+foo has content
+Testing: qux
+qux has content
+# Looks like you planned 8885 tests but only ran 7441.
+Failed 1/1 test scripts, 0.00% okay. 1444/8885 subtests failed, 83.75% okay.

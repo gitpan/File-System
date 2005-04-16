@@ -5,6 +5,7 @@ use warnings;
 
 our $VERSION = '1.01';
 
+use Carp;
 use Parse::RecDescent;
 
 =head1 NAME
@@ -29,7 +30,7 @@ Each file system object must specify a method stating whether it contains file c
 
 All file system objects allow for the lookup of other file system object by relative or absolute path names.
 
-=head2 LOOKUP METHODS
+=head2 PATH METHODS
 
 These methods provide the most generalized functionality provided by all objects. Each path specified to each of these must follow the rules given by the L</"FILE SYSTEM PATHS"> section and may either be relative or absolute. If absolute, the operation performed will be based around the file system root. If relative, the operation performed depends on whether the object is a container or not. If a container, paths are considered relative to I<this> object. If not a container, paths are considered relative to the I<parent> of the current object.
 
@@ -43,7 +44,7 @@ B<Module Authors:> You must implement this object.
 
 =item $test = $obj-E<gt>exists($path)
 
-Check the given path C<$path> and determine whether a file system object exists at that path. Return a true value if there is such an object or false otherwise.
+Check the given path C<$path> and determine whether a file system object exists at that path. Return a true value if there is such an object or false otherwise. If C<$path> is undefined, the method should assume C<$obj-E<gt>path>.
 
 B<Module Authors:> A default (albeit I<very slow>) implementation is provided of this method.
 
@@ -51,7 +52,7 @@ B<Module Authors:> A default (albeit I<very slow>) implementation is provided of
 
 sub exists {
 	my $self = shift;
-	my $path = shift;
+	my $path = shift || $self->path;
 
 	return defined $self->lookup($path);
 }
@@ -68,7 +69,7 @@ sub lookup {
 	my $self = shift;
 	my $path = shift;
 
-	my $abspath = $self->canonify($path);
+	my $abspath = $self->normalize_path($path);
 
 	if ($self->is_root) {
 		my $result = $self;
@@ -86,29 +87,36 @@ sub lookup {
 
 =item @objs = $obj->glob($glob)
 
-Find all files matching the given file globs C<$glob>. The glob should be a typical csh-style file glob---see L</"FILE SYSTEM PATHS"> below. Returns all matching objects.
+Find all files matching the given file globs C<$glob>. The glob should be a typical csh-style file glob---see L</"FILE SYSTEM PATHS"> below. Returns all matching objects. Note that globs are matched against '.' and '..', so care must be taken in crafting a glob that hopes to match files starting with '.'. (The typical solution to match all files starting with '.' is '.??*' under the assumption that one letter names are exceedingly rare and to be avoided, by the same logic.)
 
 B<Module Authors:> A generic and slow implementation is provided.
 
 =cut
 
 sub glob {
-	my $self = shift;
-	my $glob = shift;
+	my $self = shift->root;
+	my $glob = $self->normalize_path(shift);
 
 	my @components = split /\//, $glob;
+	shift @components;
 
-	my @in = $self->children;
-	my @out;
+	my @open_list = map { [ $_, $self->lookup($_) ] } $self->children_paths;
+	my @matches;
 
 	for my $component (@components) {
-		return () unless @in;
+		return () unless @open_list;
 
-		@out = $self->match_glob($component, @in);
-		@in = map { $self->is_container ? $self->children : () } @out;
+		@matches = 
+			grep { $self->match_glob($component, $_->[0]) } @open_list;
+
+		@open_list = 
+			map {
+			   my ($path, $obj) = @$_; 
+			   map { [ $_, $obj->lookup($_) ] } $obj->children 
+		   } @matches;
 	}
 
-	return @out;
+	return map { $_->[1] } @matches;
 }
 
 =item @files = $obj->find($want, @paths)
@@ -146,6 +154,33 @@ sub find {
 
 	return @found;
 }
+
+=item $test = $obj-E<gt>is_creatable($path, $type)
+
+Returns true if the user can use the C<create> method to create an object at
+C<$path>.
+
+B<Module Authors:> A definition of this method must be provided.
+
+=item $new_obj = $obj-E<gt>create($path, $type)
+
+Attempts to create the object at the given path, C<$path> with type C<$type>. Type is a string containing one or more case-sensitive characters describing the type. Here are the meanings of the possible characters:
+
+=over
+
+=item d
+
+Create a container (named "d" for "directory"). This can be used alone or with the "f" flag.
+
+=item f
+
+Create a content object (named "f" for "file"). This can be used alone or with the "d" flag.
+
+=back
+
+The C<is_creatable> method may be used first to determine if the operation is possible.
+
+B<Module Authors:> A definition of this method must be provided---even if it always fails.
 
 =back
 
@@ -296,17 +331,68 @@ The C<$force> option, when set to a true value, will remove containers and all t
 
 B<Module Authors:> A definition for this method must be given.
 
+=item $type = $obj-E<gt>object_type
+
+Synonym for:
+
+  $type = $obj->get_property("object_type");
+
+The value returned is a string containing an arbitrary number of characters describing the type of the file system object. The following are defined:
+
+=over
+
+=item d
+
+This object may contain other files.
+
+=item f
+
+This object may have content.
+
+=back
+
+B<Module Authors:> A definition for this method is provided.
+
+=cut
+
+sub object_type {
+	my $self = shift;
+	return $self->get_property('object_type');
+}
+
 =item $test = $obj-E<gt>has_content
 
 Returns a true value if the object contains file content. See L</"CONTENT METHODS"> for additional methods.
 
-B<Module Authors:> A definition for this method must be given.
+This is equivalent to:
+
+  $obj->object_type =~ /f/;
+
+B<Module Authors:> A definition for this method is provided.
+
+=cut
+
+sub has_content {
+	my $self = shift;
+	$self->object_type =~ /f/;
+}
 
 =item $test = $obj-E<gt>is_container
 
 Returns a true value if the object may container other objects. See L</"CONTAINER METHODS"> for additional methods.
 
-B<Module Authors:> A definition for this method must be given.
+This is equivalent to:
+
+  $obj->object_type =~ /d/;
+
+B<Module Authors:> A definition for this method is provided.
+
+=cut
+
+sub is_container {
+	my $self = shift;
+	$self->object_type =~ /d/;
+}
 
 =back
 
@@ -392,18 +478,6 @@ Returns the child C<File::System::Object> that matches the given C<$name> or C<u
 
 B<Module Authors:> A definition for this method must be given if C<is_container> may return true.
 
-=item $child = $obj-E<gt>mkdir($path)
-
-Creates a container at the the given path C<$path> relative to the current object C<$obj>. Returns the newly created child. If the given path C<$path> requires more than one container be created (i.e., one or more of the parents of the ultimate container doesn't exist), then the file object should create all the parent objects necessary as well. Only the ultimate container will be returned.
-
-B<Module Authors:> A definition for this method must be given if C<is_container> may return true.
-
-=item $child = $obj-E<gt>mkfile($path)
-
-Creates a content file at the given path C<$path> relative to the current object C<$obj>. Returns the newly created child. If the given path C<$path> requires that parent containers of the content file be created (i.e., one or more of the parents of the ultimate file doesn't exist), then the object should create all the parent objects necessary as well. Only the ultimate content object will be returned.
-
-B<Module Authors:> A definition for this method must be given if C<is_container> may return true.
-
 =back
 
 =head1 FILE SYSTEM PATHS
@@ -476,7 +550,7 @@ This class also provides a few helpers that may be useful to module uathors, but
 
 =over
 
-=item $clean_path = $obj-E<gt>canonify($messy_path)
+=item $clean_path = $obj-E<gt>normalize_path($messy_path)
 
 This method creates a canonical path out of the given path C<$messy_path>. This is the single most important method offered to module authors. It provides several things:
 
@@ -504,9 +578,12 @@ B<Module Authors:> Always, always, always use this method to clean up your paths
 
 =cut
 
-sub canonify {
+sub normalize_path {
 	my $self = shift;
 	my $path = shift;
+
+	defined $path
+		or croak "normalize_path must be given a path";
 
 	# Skipped so we can still get some benefit in constructors
 	if (ref $self && $path !~ m#^/#) {
