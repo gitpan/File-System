@@ -1,9 +1,9 @@
 ---
 name: File-System
-version: 1.02
+version: 1.03
 author:
   - Andrew Sterling Hanenkamp, E<lt>hanenkamp@users.sourceforge.netE<gt>
-abstract: Central factory for File::System modules
+abstract: A virtual file system written in pure Perl
 license: perl
 requires:
   File::Copy::Recursive: 0.05
@@ -11,7 +11,9 @@ requires:
 provides:
   File::System:
     file: lib/File/System.pm
-    version: 1.02
+    version: 1.03
+  File::System::Layered:
+    file: lib/File/System/Layered.pm
   File::System::Object:
     file: lib/File/System/Object.pm
     version: 1.01
