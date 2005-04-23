@@ -16,3 +16,4 @@ t/04_table_basic.t
 t/05_table_multimount.t
 t/06_table_mount.t
 t/07_layered.t
+Makefile.PL
