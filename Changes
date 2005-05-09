@@ -1,3 +1,8 @@
+1.07	2005-05-08 21:38	Andrew Sterling Hanenkamp
+
+	* lib/File/System/Object.pm: Results of glob() and find() sorted.
+	* lib/File/System/Real.pm: Results of glob() sorted.
+
 1.06	2005-04-30 17:25	Andrew Sterling Hanenkamp
 
 	* lib/File/System/Object.pm: Improved the "ne", "eq", and "cmp" operators
