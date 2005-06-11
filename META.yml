@@ -1,8 +1,8 @@
 ---
 name: File-System
-version: 1.11
+version: 1.12
 author:
-  - 'Andrew Sterling Hanenkamp, E<lt>hanenkamp@users.sourceforge.netE<gt>'
+  - Andrew Sterling Hanenkamp, E<lt>hanenkamp@users.sourceforge.netE<gt>
 abstract: A virtual file system written in pure Perl
 license: perl
 requires:
@@ -11,7 +11,7 @@ requires:
 provides:
   File::System:
     file: lib/File/System.pm
-    version: 1.11
+    version: 1.12
   File::System::Layered:
     file: lib/File/System/Layered.pm
     version: 1.06
@@ -20,7 +20,7 @@ provides:
     version: 1.06
   File::System::Passthrough:
     file: lib/File/System/Passthrough.pm
-    version: 1.01
+    version: 1.02
   File::System::Real:
     file: lib/File/System/Real.pm
     version: 1.05
