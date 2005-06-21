@@ -1,3 +1,13 @@
+1.13	2005-06-21 09:31	Andrew Sterling Hanenkamp
+
+	* lib/File/System/Object.pm: Removed the Parse::RecDescent parser grammar
+	  that is used with the internal globber.
+	* lib/File/System/Globber.PL: At build time this script generates a file
+	  named lib/File/System/Globber.pm containing the precompiled parser
+	  grammar, which ought to save a fraction of a second that was spend parsing
+	  the grammar and then compiling the Perl generated. Now, it just needs to
+	  compile the generated Perl.
+
 1.12	2005-06-08 21:26	Andrew Sterling Hanenkamp
 
 	* lib/File/System/Passthrough.pm: Updated the passthrough driver so that

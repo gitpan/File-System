@@ -3,10 +3,10 @@ package File::System::Object;
 use strict;
 use warnings;
 
-our $VERSION = '1.06';
+our $VERSION = '1.07';
 
 use Carp;
-use Parse::RecDescent;
+use File::System::Globber;
 
 =head1 NAME
 
@@ -657,48 +657,7 @@ This will match the given glob pattern C<$glob> against the given paths C<@all_p
 
 =cut
 
-my $grammar = q(
-
-glob:				match(s)
-
-match:				match_one
-|					match_any
-|					match_alternative
-|					match_collection
-|					match_character
-
-match_one: 			'?'
-					{ 	$return = bless {}, 'File::System::Glob::MatchOne' }
-
-match_any: 			'*'
-					{ 	$return = bless {}, 'File::System::Glob::MatchAny' }
-
-match_alternative:	'{' match_option(s /,/) '}'
-					{ 	$return = bless { alternatives => $item[2] }, 'File::System::Glob::MatchAlternative' }
-
-match_option:		/(?:[^,\\}\\\\]|\\\\}|\\\\,|\\\\)+/
-					{ 	local $_ = $item[1];
-						s/\\\\}/}/g;
-						s/\\\\,/,/g;
-						s/\\\\\\\\/\\\\/g;
-						$return = $_ }
-
-match_collection:  '[' match_class(s) ']'
-					{	$return = bless { classes => $item[2] }, 'File::System::Glob::MatchCollection' }
-
-match_class:		/(.)-(.)/
-					{	$return = [ $1, $2 ] }
-| 					/\\\\]/
-					{	$return = "]" }
-|					/[^\\]]/
-					{	$return = $item[1] }
-
-match_character:	/./
-					{	$return = bless { character => $item[1] }, 'File::System::Glob::MatchCharacter' }
-
-);
-
-my $globber = Parse::RecDescent->new($grammar);
+my $globber = File::System::Globber->new;
 
 sub match_glob {
 	my $self = shift;
