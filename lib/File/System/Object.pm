@@ -3,7 +3,7 @@ package File::System::Object;
 use strict;
 use warnings;
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 use Carp;
 use File::System::Globber;
@@ -244,7 +244,7 @@ B<Module Authors:> An implementation of this method must be provided.
 
 =item $name = $obj-E<gt>basename
 
-This is the base name of the object (local name with the rest of the path stripped out). This value is also available as C<$obj-E<gt>get_property('basename')>
+This is the base name of the object (local name with the rest of the path stripped out). This value is also available as C<$obj-E<gt>get_property('basename')>. Note that the root object C<basename> should be C<'/'>. This fits better with unix, but actually differs from how Perl normally works.
 
 B<Module Authors:> An implementation of this method is provided.
 
@@ -331,7 +331,27 @@ B<Module Authors:> A definition for this method must be given.
 
 Files may have an arbitrary set of properties associated with them. Many of the common accessors are just shortcuts to calling this method.
 
-B<Module Authors:> A definition for this method must be given.
+B<Module Authors:> A definition for this method must be given. It should return values for at least the following keys:
+
+=over
+
+=item basename
+
+See C<basename> for a description. When implementing this, you may wish to use the C<basename_of_path> helper.
+
+=item dirname
+
+See C<dirname> for a description. When implementing this, you may wish to use the C<dirname_of_path> helper.
+
+=item object_type
+
+See C<object_type> for a description.
+
+=item path
+
+See C<path> for a description.
+
+=back
 
 =item $obj-E<gt>set_property($key, $value)
 
@@ -641,6 +661,7 @@ sub normalize_path {
 			splice @components, $i, 1;
 		} elsif ($components[$i] eq '..') {
 			splice @components, ($i - 1), 2;
+			$i--;
 		} else {
 			$i++;
 		}
@@ -730,6 +751,44 @@ BACKUP:		my ($tstr, $amt, @ttree);
 	}
 
 	return @matches;
+}
+
+=item $basename = $obj-E<gt>basename_of_path($normalized_path)
+
+Given a normalized path, this method will return the basename for that path according to the rules employed by C<File::System>. (Essentially, they are the same as L<File::Basename>, except that the basename of "/" is "/" rather than "".)
+
+=cut
+
+sub basename_of_path {
+	my $self = shift;
+	my $path = shift;
+
+	if ($path eq '/') {
+		return '/';
+	} else {
+		my @components = split m{/}, $path;
+		return pop @components;
+	}
+}
+
+=item $dirname = $obj-E<gt>dirname_of_path($normalized_path)
+
+Given a normalized path, this method will return the dirname for that path according to the rules employed by C<File::System>. (These should be identical to the rules used by L<File::Basename> as far as I know.)
+
+=cut
+
+sub dirname_of_path {
+	my $self = shift;
+	my $path = shift;
+
+	if ($path eq '/') {
+		return '/';
+	} else {
+		my @components = split m{/}, $path;
+		pop @components;
+		push @components, '' if @components == 1;
+		return join '/', @components;
+	}
 }
 
 =back

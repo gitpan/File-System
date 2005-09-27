@@ -1,3 +1,15 @@
+1.14	2005-09-26 21:05	Andrew Sterling Hanenkamp
+
+	* FIXED [cpan #14771] t/01_normalize_path.t, lib/File/System/Object.pm:
+	  Fixed a tiny off-by-one error that caused ".."'s to be mistreated by the
+	  normalize_path() method.
+	* FIXED [cpan #13514] lib/File/System/Object.pm, lib/File/System/Table.pm,
+	  lib/File/System/Test.pm, lib/File/System/Real.pm: Removed basename/dirname
+	  calculations using the Perl File::Basename package. There's some
+	  controversy about the correct way to do this and the docs already specify
+	  that we do things the way Unix likes too anyway. That'll keep things
+	  consistent. Thanks to Zev Benjamin for the heads up.
+
 1.13	2005-06-21 09:31	Andrew Sterling Hanenkamp
 
 	* lib/File/System/Object.pm: Removed the Parse::RecDescent parser grammar
