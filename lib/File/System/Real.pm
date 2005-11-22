@@ -3,7 +3,7 @@ package File::System::Real;
 use strict;
 use warnings;
 
-our $VERSION = '1.06';
+our $VERSION = '1.15';
 
 use Carp;
 use File::Copy ();
@@ -270,7 +270,7 @@ sub create {
 		or croak "Missing required argument 'type'.";
 
 	if ($type eq 'f') {	
-		my $fulldir = $self->normalize_real_path(File::Basename::dirname($path));
+		my $fulldir = $self->dirname_of_path($self->normalize_real_path($path));
 
 		File::Path::mkpath($fulldir, 0);
 
@@ -443,7 +443,8 @@ sub is_appendable {
 sub open {
 	my $self   = shift;
 	my $access = shift;
-	return FileHandle->new($self->{fullpath}, $access);
+	return FileHandle->new($self->{fullpath}, $access)
+		or croak "Cannot open $self with access mode '$access': $!";
 }
 
 sub content {
@@ -459,7 +460,8 @@ sub content {
 sub has_children {
 	my $self = shift;
 
-	opendir DH, $self->{fullpath};
+	opendir DH, $self->{fullpath}
+		or croak "Cannot open directory $self for listing: $!";
 	my @dirs = grep !/^\.\.?$/, readdir DH;
 	closedir DH;
 
@@ -468,8 +470,9 @@ sub has_children {
 
 sub children_paths {
 	my $self = shift;
-	
-	opendir DH, $self->{fullpath};
+
+	opendir DH, $self->{fullpath}
+		or croak "Cannot open directory $self for listing: $!";
 	my @paths = map { s/^$self->{fs_root}//; $_ } readdir DH;
 	closedir DH;
 
@@ -479,7 +482,8 @@ sub children_paths {
 sub children {
 	my $self = shift;
 
-	opendir DH, $self->{fullpath};
+	opendir DH, $self->{fullpath}
+		or croak "Cannot open directory $self for listing: $!";
 	my @children = map {
 		if (/^\.\.?$/) {
 			()
