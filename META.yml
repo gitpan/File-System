@@ -1,6 +1,6 @@
 ---
 name: File-System
-version: 1.15
+version: 1.16
 author:
   - 'Andrew Sterling Hanenkamp, E<lt>hanenkamp@users.sourceforge.netE<gt>'
 abstract: A virtual file system written in pure Perl
@@ -11,13 +11,13 @@ requires:
 provides:
   File::System:
     file: lib/File/System.pm
-    version: 1.15
+    version: 1.16
   File::System::Layered:
     file: lib/File/System/Layered.pm
-    version: 1.06
+    version: 1.16
   File::System::Object:
     file: lib/File/System/Object.pm
-    version: 1.15
+    version: 1.16
   File::System::Passthrough:
     file: lib/File/System/Passthrough.pm
     version: 1.02
@@ -29,5 +29,5 @@ provides:
     version: 1.15
   File::System::Test:
     file: lib/File/System/Test.pm
-    version: 1.04
+    version: 1.16
 generated_by: Module::Build version 0.2611
